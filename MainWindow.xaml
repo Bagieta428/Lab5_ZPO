@@ -1,0 +1,107 @@
+﻿<Window x:Class="Lab5_ZPO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab5_ZPO"
+        mc:Ignorable="d"
+        
+        Icon="images/app_icon.png"
+        Title="Kontakty" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize"
+        Background="Black">
+    
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" ShowGridLines="False" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="phoneBookListBox" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}"
+                 Background="#181818" Foreground="White" FontSize="16"
+                 Grid.ColumnSpan="4" Grid.RowSpan="1" />
+
+        <Button x:Name="addButton" BorderThickness="3" BorderBrush="White" Background="#24DA2F"
+                HorizontalAlignment="Center" Height="80" Width="180" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="4" Padding="6"
+                Click="addButton_Click">
+            <Image Source="images/add_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <Button x:Name="editButton" BorderThickness="3" BorderBrush="White" Background="Black"
+                HorizontalAlignment="Center" Height="55" Width="80" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="4" Padding="6"
+                Click="editButton_Click">
+            <Image Source="images/edit_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <Button x:Name="deleteButton" BorderThickness="3" BorderBrush="White" Background="Black"
+                HorizontalAlignment="Center" Height="55" Width="80" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="4" Padding="5"
+                Click="deleteButton_Click">
+            <Image Source="images/delete_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="sortButton" BorderThickness="3" BorderBrush="White" Background="Black"
+                HorizontalAlignment="Left" Height="45" Width="180" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="4" Padding="4"
+                Click="sortButton_Click">
+            <Image Source="images/sort_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="filterButton" BorderThickness="3" BorderBrush="White" Background="Black"
+                HorizontalAlignment="Right" Height="45" Width="180" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="4" Padding="2"
+                Click="filterButton_Click">
+            <Image Source="images/filter_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <Button x:Name="deleteAll" BorderThickness="3" BorderBrush="White" Background="Black"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Height="50" Width="50" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,8,25,0" Padding="4"
+                Click="deleteAll_Click">
+            <Image Source="images/deleteAll_icon.png"></Image>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="clearFiltersButton" Content="Anuluj filtry" FontSize="22" BorderThickness="3" BorderBrush="White" Background="Black" Foreground="White"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="40" Width="150" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,25,8" Padding="0,0,0,2"
+                Visibility="Collapsed"
+                Click="cancelFiltersButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

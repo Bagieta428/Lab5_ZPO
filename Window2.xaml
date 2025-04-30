@@ -1,0 +1,63 @@
+﻿<Window x:Class="Lab5_ZPO.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab5_ZPO"
+        mc:Ignorable="d"
+        
+        Icon="images/app_icon.png"
+        Title="Filtrowanie" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize"
+        Background="Black">
+    
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" ShowGridLines="False" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="filterLabel" Content="Czy kontakt zawiera:" FontSize="16" FontWeight="Bold" Foreground="White"
+               HorizontalAlignment="Center" Height="30" Grid.Row="0" Margin="5" />
+
+        <CheckBox x:Name="nazwiskoCheckbox" Content="Nazwisko" FontSize="14" Foreground="White"
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Grid.Row="1" Margin="20,0,0,0" />
+
+        <CheckBox x:Name="emailCheckBox" Content="E-mail" FontSize="14" Foreground="White"
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Grid.Row="2" Margin="20,0,0,0" />
+
+        <Label x:Name="filterTraitsLabel" Content="Kategoria:" FontSize="14" Foreground="White"
+               HorizontalAlignment="Left" Height="30" Grid.Row="3" Margin="16,0,0,0" />
+        <ComboBox x:Name="filterTraitsComboBox" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Stretch"
+                  Height="25" Width="140" Grid.Row="3" Margin="5" >
+            <ComboBoxItem Content="Rodzina"/>
+            <ComboBoxItem Content="Znajomi"/>
+            <ComboBoxItem Content="Praca"/>
+            <ComboBoxItem Content="Inne"/>
+        </ComboBox>
+
+        <Button x:Name="applyFiltersButton" Content="Zastosuj" BorderThickness="3" BorderBrush="White" Background="Black" Foreground="White"
+                HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="100" Grid.Row="4" Margin="15,0,0,0" Click="applyFiltersButton_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="cancelFiltersButton" Content="Anuluj" BorderThickness="3" BorderBrush="White" Background="Black" Foreground="White"
+                HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="100" Grid.Row="4" Margin="0,0,15,0" Click="cancelFiltersButton_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
